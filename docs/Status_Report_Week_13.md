@@ -9,7 +9,7 @@ This project simulates a group of processes that compete for shared resources an
 * Six test scenarios coded into the program  
 * Initial run with timing data captured for each scenario  
 * Input validation added so bad test inputs give clean errors  
-* GitHub repo set up for version control, organization, and if I have to work remote
+* GitHub repo set up for version control, organization, and if I have to work remote - https://github.com/salahmajid/deadlock_detection_project
 
 **What I have left:** 
 
