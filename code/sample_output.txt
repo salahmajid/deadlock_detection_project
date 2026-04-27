@@ -1,0 +1,101 @@
+
+--- Test 1: No deadlock ---
+  P1 got R1
+  P1 got R2
+  P1 released R1
+  P1 released R2
+  P2 got R1
+  Detection took 0.0043 ms
+  No deadlock found (correct)
+
+--- Test 2: Two-process deadlock ---
+  P1 got R1
+  P2 got R2
+  P1 blocked, waiting for R2
+  P2 blocked, waiting for R1
+  *** DEADLOCK: P1 -> P2 -> P1 ***
+  Detection took 0.0036 ms
+
+--- Test 3: Three-process cycle ---
+  P1 got R1
+  P2 got R2
+  P3 got R3
+  P1 blocked, waiting for R2
+  P2 blocked, waiting for R3
+  P3 blocked, waiting for R1
+  *** DEADLOCK: P1 -> P2 -> P3 -> P1 ***
+  Detection took 0.0032 ms
+
+--- Test 4: Single process ---
+  P1 got R1
+  P1 got R2
+  Detection took 0.0009 ms
+  No deadlock found (correct)
+
+--- Test: 10-process cycle ---
+  P1 got R1
+  P2 got R2
+  P3 got R3
+  P4 got R4
+  P5 got R5
+  P6 got R6
+  P7 got R7
+  P8 got R8
+  P9 got R9
+  P10 got R10
+  P1 blocked, waiting for R2
+  P2 blocked, waiting for R3
+  P3 blocked, waiting for R4
+  P4 blocked, waiting for R5
+  P5 blocked, waiting for R6
+  P6 blocked, waiting for R7
+  P7 blocked, waiting for R8
+  P8 blocked, waiting for R9
+  P9 blocked, waiting for R10
+  P10 blocked, waiting for R1
+  *** DEADLOCK: P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8 -> P9 -> P10 -> P1 ***
+  Detection took 0.0033 ms
+
+--- Test: 20-process cycle ---
+  P1 got R1
+  P2 got R2
+  P3 got R3
+  P4 got R4
+  P5 got R5
+  P6 got R6
+  P7 got R7
+  P8 got R8
+  P9 got R9
+  P10 got R10
+  P11 got R11
+  P12 got R12
+  P13 got R13
+  P14 got R14
+  P15 got R15
+  P16 got R16
+  P17 got R17
+  P18 got R18
+  P19 got R19
+  P20 got R20
+  P1 blocked, waiting for R2
+  P2 blocked, waiting for R3
+  P3 blocked, waiting for R4
+  P4 blocked, waiting for R5
+  P5 blocked, waiting for R6
+  P6 blocked, waiting for R7
+  P7 blocked, waiting for R8
+  P8 blocked, waiting for R9
+  P9 blocked, waiting for R10
+  P10 blocked, waiting for R11
+  P11 blocked, waiting for R12
+  P12 blocked, waiting for R13
+  P13 blocked, waiting for R14
+  P14 blocked, waiting for R15
+  P15 blocked, waiting for R16
+  P16 blocked, waiting for R17
+  P17 blocked, waiting for R18
+  P18 blocked, waiting for R19
+  P19 blocked, waiting for R20
+  P20 blocked, waiting for R1
+  *** DEADLOCK: P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8 -> P9 -> P10 -> P11 -> P12 -> P13 -> P14 -> P15 -> P16 -> P17 -> P18 -> P19 -> P20 -> P1 ***
+  Detection took 0.0072 ms
